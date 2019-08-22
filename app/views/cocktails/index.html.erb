@@ -1,0 +1,11 @@
+<h1>My Cocktails</h1>
+  <% @cocktails.each do |cocktail| %>
+<div class="cocktail col-12 col-lg-4 "></div>
+  <%= link_to  cocktail_path(cocktail) do %>
+    <%=  cocktail.name %>
+    <%= image_tag "https://source.unsplash.com/cocktail?"%>
+  <% end %>
+ <% end %>
+</div>
+
+<%= link_to "add a new cocktail", new_cocktail_path %>

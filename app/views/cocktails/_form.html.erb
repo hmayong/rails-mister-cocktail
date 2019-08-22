@@ -1,0 +1,15 @@
+<%= simple_form_for(@cocktail, html: { class: 'w-50 mt-5 mx-auto' }) do |f| %>
+  <% if @cocktail.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @cocktail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- [...] all the fields -->
+  <%= f.input :name, label: false, placeholder: "Name" %>
+  <%= f.submit "add a cocktail", class: "btn btn-primary" %>
+<% end %>
