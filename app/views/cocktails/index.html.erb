@@ -1,16 +1,12 @@
-<h1>Cocktail Time!</h1>
+<h1 class = text-center>Cocktail Time!</h1>
 <div class="container">
 <div class="row">
   <% @cocktails.each do |cocktail| %>
-    <div class="col-12 col-md-6 col-lg-3 mx-auto">
-        <div class="card">
+    <div class="col-12 col-md-6 col-lg-3 mt-1">
+        <div class="card mx-auto">
           <%= link_to  cocktail_path(cocktail) do %>
-          <div class="card-title">
-            <%=  cocktail.name %>
-          </div>
-          <div class="card-img">
-            <%= image_tag 'https://source.unsplash.com/500x400/?cocktail'%>
-          </div>
+          <h5 class="card-title"><%=  cocktail.name %></h5>
+          <img src = "https://source.unsplash.com/200x100/?cocktail" class="card-img">
           <% end %>
         </div>
     </div>
@@ -18,4 +14,4 @@
   </div>
 </div>
 
-<%= link_to "add a new cocktail", new_cocktail_path %>
+<h1><span class="badge badge-secondary"><%= link_to "add a new cocktail", new_cocktail_path %></span></h1>
