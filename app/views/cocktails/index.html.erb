@@ -1,17 +1,25 @@
-<h1 class = text-center>Cocktail Time!</h1>
-<div class="container">
-<div class="row">
-  <% @cocktails.each do |cocktail| %>
-    <div class="col-12 col-md-6 col-lg-3 mt-1">
-        <div class="card mx-auto">
-          <%= link_to  cocktail_path(cocktail) do %>
-          <h5 class="card-title"><%=  cocktail.name %></h5>
-          <img src = "https://source.unsplash.com/200x100/?cocktail" class="card-img">
-          <% end %>
-        </div>
-    </div>
-  <% end %>
-  </div>
+<div class="home-banner">
+  <h1>Cocktail Time!</h1>
 </div>
 
-<h1><span class="badge badge-secondary"><%= link_to "add a new cocktail", new_cocktail_path %></span></h1>
+<div class="container">
+  <div class="row mx-auto mt-2">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-12 col-md-6 col-lg-3 mt-2">
+          <div class="card h-100">
+            <%= link_to  cocktail_path(cocktail) do %>
+            <img src = "https://source.unsplash.com/200x100/?<%= cocktail.name %>,cocktail" class="card-img">
+            <div class="d-flex flex-row justify-content-between">
+              <h5 class="card-title"><%= cocktail.name %></h5>
+              <% end %>
+              <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash destroy_dose"></i>
+              <% end %>
+            </div>
+          </div>
+      </div>
+    <% end %>
+    </div>
+  <%= link_to "add a new cocktail", new_cocktail_path %>
+</div>
+
