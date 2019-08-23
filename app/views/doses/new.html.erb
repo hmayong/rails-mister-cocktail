@@ -11,6 +11,7 @@
   <% end %>
 
   <!-- [...] all the fields -->
-  <%= f.input :description, label: false, placeholder: "Name" %>
-  <%= f.submit "add a dose", class: "btn btn-primary" %>
+  <%= f.association :ingredient, input_html: { class: "beautiful-dropdown" }, include_hidden: false, label: false, prompt: "Ingredient" %>
+  <%= f.input :description, label: false, placeholder: "Description" %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
